@@ -3,14 +3,16 @@ package com.example.authLogin.User;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.validator.constraints.UUID;
+
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
-@Table(name="users")
+@Table(name="users")//em postgres NÃO salve uma tabela apenas como "user", pois irá haver conflito no SGBD
 @Entity(name="users")
 @Getter
 @Setter
@@ -30,9 +32,26 @@ public class User implements UserDetails {
 
     private UserRole role;
 
+    public User(String login, String password, UserRole role){
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }//construtor para registro de novo usuário
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_CLIENT"));
+        //numa hierarquia de roles, uma role superior possuirá as mesmas permissões de uma role inferior
+        //ou seja, neste caso, se um user for ADMIN, é necessário informar que ele tem as permissões de ADMIN e de CLIENT
+        //SimpleGrantedAuthority = função do Security que processa as permissões baseadas nas roles do user
+
+        return List.of(new SimpleGrantedAuthority("ROLE_CLIENT"));
+        //é necessário sempre retornar um "List.of" de SimpleGrantedAuthority pois, pelos motivos acima, um usuário pode ter mais de uma role
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
     @Override
