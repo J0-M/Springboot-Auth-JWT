@@ -1,6 +1,6 @@
-## Autenticação & Login – Spring Boot
+# Autenticação & Login – Spring Boot
 
-# Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto foi desenvolvido como um estudo prático de autenticação e autorização em aplicações web com Spring Boot.
 Ele implementa um sistema de login com tokens JWT, controle de usuários e um CRUD de produtos protegido por autenticação.
@@ -14,7 +14,7 @@ O foco foi aprender e aplicar conceitos de:
 - Persistência de dados com JPA
 - Arquitetura em camadas (Controller, Service, Repository)
 
-# Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - Java 17+
 - Spring Boot
@@ -23,14 +23,14 @@ O foco foi aprender e aplicar conceitos de:
 - PostgreSQL
 - Maven
 
-# Funcionalidades 
+## Funcionalidades 
 - Registro e autenticação de usuários
 - Login com JWT Token
 - Perfis de usuário (ADMIN / CLIENT)
 - CRUD de produtos protegido por autenticação
 - Filtros de segurança e autorização via Spring Security
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 <pre markdown="1">
 autenticacaoLogin-main
  ├── README.md
@@ -80,7 +80,7 @@ autenticacaoLogin-main
                              └── AuthLoginApplicationTests.java
 </pre>
 
-# Como Executar?
+## Como Executar?
 1. Clone e acesse o Respositório:
 `
 git clone https://github.com/seu-usuario/autenticacaoLogin.git
@@ -105,13 +105,13 @@ mvn spring-boot:run
 http://localhost:8080
 `
 
-# Aprendizados
+## Aprendizados
 - Configuração do Spring Security com JWT
 - Criação de filtros de autenticação (SecurityFilter)
 - Implementação de roles de usuário para autorização
 - Boas práticas de organização em camadas
 
-# Próximos Passos
+## Próximos Passos
 - Adicionar refresh token para prolongar sessão
 - Implementar recuperação de senha
 - Criar documentação da API com Swagger/OpenAPI
