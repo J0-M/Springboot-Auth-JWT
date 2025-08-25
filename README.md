@@ -83,7 +83,7 @@ autenticacaoLogin-main
 ## Como Executar?
 1. Clone e acesse o Respositório:
 `
-git clone [https://github.com/seu-usuario/autenticacaoLogin.git](https://github.com/J0-M/Springboot-Auth-JWT.git)
+git clone https://github.com/J0-M/Springboot-Auth-JWT.git
 cd autenticacaoLogin-main/authLoginBackend
 `
 
