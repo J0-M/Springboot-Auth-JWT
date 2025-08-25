@@ -80,4 +80,39 @@ autenticacaoLogin-main
                              └── AuthLoginApplicationTests.java
 </pre>
 
-# 
+# Como Executar?
+1. Clone e acesse o Respositório:
+`
+git clone https://github.com/seu-usuario/autenticacaoLogin.git
+cd autenticacaoLogin-main/authLoginBackend
+`
+
+2. Configure o banco de dados no arquivo src/main/resources/application.properties:
+`
+spring.datasource.url=jdbc:postgresql://localhost:5432/seu_banco
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+`
+3. Execute a aplicação:
+`
+mvn spring-boot:run
+`
+
+4. Acesse a URL:
+`
+http://localhost:8080
+`
+
+# Aprendizados
+- Configuração do Spring Security com JWT
+- Criação de filtros de autenticação (SecurityFilter)
+- Implementação de roles de usuário para autorização
+- Boas práticas de organização em camadas
+
+# Próximos Passos
+- Adicionar refresh token para prolongar sessão
+- Implementar recuperação de senha
+- Criar documentação da API com Swagger/OpenAPI
+- Adicionar testes unitários mais completos
